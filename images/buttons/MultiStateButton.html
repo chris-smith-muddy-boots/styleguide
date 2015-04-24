@@ -1,0 +1,129 @@
+﻿<!DOCTYPE html>
+
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>Multi State Button</title>
+    <link href="http://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
+    <style>
+        .multi-state {
+            height:30px;
+            font-size:13px;
+            -webkit-box-sizing:border-box;
+            -moz-box-sizing:border-box;
+            box-sizing:border-box;
+            display:inline-block;
+            vertical-align:middle;
+            border-radius:5px;
+            padding:5px 10px;
+            -webkit-transition:all .6s ease-in-out;
+            -moz-transition:all .6s ease-in-out;
+            -o-transition:all .6s ease-in-out;
+            transition:all .6s ease-in-out;
+        }
+            .multi-state i {
+                margin-right:4px;
+            }
+        .save-disabled {
+            background:#fff;
+            border:solid 1px #ccc;
+            color:#ccc;
+        }
+        .saving,
+        .saved {
+            background:#fff;
+            border:solid 1px #5ba546;
+            color:#5ba546;
+        }
+        .save-enabled {
+            background:#5ba546;
+            border:solid 1px #5ba546;
+            color:#fff;
+            box-shadow: 0 8px 5px -5px #999;
+            position:relative;
+            bottom:3px;
+            cursor:pointer;
+            -webkit-transition:all .2s ease-in-out;
+            -moz-transition:all .2s ease-in-out;
+            -o-transition:all .2s ease-in-out;
+            transition:all .2s ease-in-out;
+        }
+        .save-enabled:hover {
+            background:#5bb646;
+            border:solid 1px #5bb646;
+            box-shadow:none;
+            bottom:0;
+            -webkit-transition:all .2s ease-in-out;
+            -moz-transition:all .2s ease-in-out;
+            -o-transition:all .2s ease-in-out;
+            transition:all .2s ease-in-out;
+        }
+    </style>
+</head>
+<body>
+    <p>
+        <button class="multi-state save-disabled" disabled>Save</button>
+    </p>
+    <p>
+        <input type="text" />
+    </p>
+    
+    <script src="https://code.jquery.com/jquery-1.11.1.min.js"></script>
+    <script>
+
+        var btn = $('.multi-state');
+        // store value to monitor if it has changed
+        var txt = $('input[type=text]').val();
+
+        // functions
+
+        var toSaveEnabled = function () {
+            btn.removeClass('save-disabled').addClass('save-enabled').prop('disabled', false);
+            btn.find('i').remove();
+        };
+
+        var toSaveDisabled = function () {
+            btn.removeClass('save-enabled').addClass('save-disabled').prop('disabled', true);
+        };
+
+        var toSaving = function () {
+            btn.removeClass('save-enabled').addClass('saving').text('Saving').prop('disabled', true);
+            btn.prepend('<i class="fa fa-circle-o-notch fa-spin"></i>');
+            // update stored value
+            txt = $('input[type=text]').val();
+        };
+
+        var toSaved = function () {
+            btn.removeClass('saving').addClass('saved').text('Saved');
+            btn.find('i').remove();
+            btn.prepend('<i class="fa fa-check"></i>');
+        };
+
+        var simulateSave = function () {
+            // random delay
+            var delay = Math.round(Math.random() * 5e3);
+            console.log(delay);
+            setTimeout(toSaved, delay);
+        };
+
+        // UI events
+
+        $(document).on('keyup', 'input[type=text]', function () {
+            btn.removeClass('saved').text('Save');
+            if ($(this).val() !== txt) {
+                toSaveEnabled();
+            }
+            else {
+                toSaveDisabled();
+            }
+        });      
+
+        $(document).on('click', '.save-enabled', function () {
+            toSaving();
+            // in reality this would be an ajax callback
+            simulateSave();                
+        });
+
+    </script>
+</body>
+</html>
