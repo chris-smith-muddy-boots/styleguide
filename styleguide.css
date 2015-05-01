@@ -1,83 +1,106 @@
 /* styling for the style guide template */
 
 * {
-    box-sizing:border-box;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
 }
 
 body {
-    background-color:#fff;
-    color:#000;
+    background-color: #fff;
+    color: #000;
     font-family: sans-serif;
-    font-size:17px;
-    margin:0;
-    padding:0;
+    font-size: 17px;
+    margin: 0;
+    padding: 0;
 }
 
 header {
-    background-color:#5ba546;
-    border-bottom:solid 2px #ccc;
-    clear:both;
-    color:#fff;
-    display:block;
-    height:4em;
-    padding:1em;
+    background-color: #5ba546;
+    border-bottom: solid 2px #ccc;
+    clear: both;
+    color: #fff;
+    display: block;
+    height: 4em;
+    padding: 1em;
 }
 
     header a {
-        color:#fff;
+        color: #fff;
         text-decoration: none;
     }
 
     header h1 {
-        display:inline-block;
-        font-weight:normal;
-        margin:0;
+        display: inline-block;
+        font-weight: normal;
+        margin: 0;
     }
 
 nav {
-    background-color:#eeeeee;
-    display:table-cell;
-    padding:1em;
-    vertical-align:top;
-    width:12em;
+    background-color: #eeeeee;
+    display: table-cell;
+    padding: 1em;
+    vertical-align: top;
+    width: 12em;
 }
 
     nav h3 {
-        font-weight:normal;
-        margin:0 0 .5em 0;
+        font-weight: normal;
+        margin: 0 0 .5em 0;
     }
 
     nav a {
-        color:#5ba546;
-        display:block;
-        padding:.25em .5em;
+        color: #5ba546;
+        display: block;
+        padding: .25em .5em;
         text-decoration: none;
     }
 
-    nav a + a {
-        border-top:solid 1px #bbb;
-    }
+        nav a + a {
+            border-top: solid 1px #bbb;
+        }
 
         nav a:hover {
-            background-color:#deedda;
+            background-color: #deedda;
         }
 
         nav a i.fa {
-            margin-right:.5em;
+            margin-right: .5em;
         }
 
 #wrapper {
-    display:table;
-    padding:1em;
-    width:100%;
+    display: table;
+    padding: 1em;
+    width: 100%;
 }
 
 #content {
-    display:table-cell;
-    padding:1em;
-    vertical-align:top;
+    display: table-cell;
+    padding: 1em;
+    vertical-align: top;
 }
 
     #content > * {
-        max-width:44em;
+        max-width: 44em;
     }
+
+/* google custom search */
+
+.cse .gsc-control-cse,
+.gsc-control-cse {
+    background: none !important;
+    border: none !important;
+    display: inline-block !important;
+    width: 30em !important;
+    position: absolute;
+    top: 0;
+    right: 0;
+}
+
+.gsc-control-cse * {
+    -moz-box-sizing: content-box;
+    -webkit-box-sizing: content-box;
+    box-sizing: content-box;
+    padding:0;
+    margin:0;
+}
