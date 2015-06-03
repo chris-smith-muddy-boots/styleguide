@@ -4,8 +4,63 @@
 <head>
     <meta charset="utf-8" />
     <title>Buttons</title>
-    <link href="http://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
+    <!--<link href="http://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">-->
+    <link rel="stylesheet" href="codemirror/lib/codemirror.css" />
+    <link rel="stylesheet" href="codemirror/theme/mdn-like.css" />
+    <script src="codemirror/lib/codemirror.js"></script>
+    <script src="codemirror/mode/css/css.js"></script>
     <style>
+        /* default button */
+input[type=submit],
+input[type=reset],
+input[type=button],
+button,
+.btn {
+    border: none;
+    border-radius: 5px;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    color:#fff;
+    display: inline-block;
+    font-size: 13px;
+    height: 30px;
+    padding: 5px 10px;
+    vertical-align: middle;
+    -webkit-appearance:none;
+    -moz-appearance:none;
+}
+
+/* positive action button (green) */
+.btn-pos {
+    background-color: #6a4;
+}
+.btn-pos:hover {
+    background-color: #6b4;
+}
+
+/* negative action button (grey) */
+.btn-neg {
+    background-color: #666;
+}
+.btn-neg:hover {
+    background-color: #777;
+}
+
+/* disabled */
+input[type=submit][disabled="disabled"],
+input[type=reset][disabled="disabled"],
+input[type=button][disabled="disabled"],
+button[disabled="disabled"],
+.btn[disabled="disabled"],
+input[type=submit]:disabled,
+input[type=reset]:disabled,
+input[type=button]:disabled,
+button:disabled,
+.btn:disabled {
+    background-color: #ccc;
+}
+
         .multi-state {
             height:30px;
             font-size:13px;
@@ -63,22 +118,91 @@
 <body>
     <h2>Buttons</h2>
     <ul>
-      <li>​Primary Action buttons should be green, Secondary action button should be dark grey. The Primary action should appear first.<br>
-      </li>
-      <li>All buttons have white text centered. </li>
+        <li>
+            ​Primary Action buttons should be green, Secondary action button should be dark grey. The Primary action should appear first.<br>
+        </li>
+        <li>All buttons have white text centered. </li>
     </ul>
-    <p><img src="images/forms/formbuttons.png" width="217" height="65" alt=""/></p>
+    <p><img src="images/forms/formbuttons.png" width="217" height="65" alt="" /></p>
     <p>The  buttons below are wrong - the primary and secondary action buttons should not both be green. </p>
-<p><img src="images/forms/buttons-wrong.png" width="179" height="61" alt=""/></p>
-<p>This button is wrong - it has shading and an emboss..</p>
-<p><img src="images/forms/buttons-wrong-style.png" width="201" height="62" alt=""/></p>
-
+    <p><img src="images/forms/buttons-wrong.png" width="179" height="61" alt="" /></p>
+    <p>This button is wrong - it has shading and an emboss..</p>
+    <p><img src="images/forms/buttons-wrong-style.png" width="201" height="62" alt="" /></p>
     <hr>
     <h3>Interactive Button</h3>
-    
-<p>Below is an example of an interactive button which is only pressable when there is an entry made into the input box. Click on the image or <a href="images/buttons/MultiStateButton.html" target="_blank">here</a> to see this in action.</p>
-<a href="images/buttons/MultiStateButton.html" target="_blank"><img src="images/buttons/buttons.jpg" width="397" height="375" alt=""/></a>          
-   <!-- this script is needed to build the template -->
-<script src="build.js"></script>    
- 
+
+    <p>Below is an example of an interactive button which is only pressable when there is an entry made into the input box. Click on the image or <a href="images/buttons/MultiStateButton.html" target="_blank">here</a> to see this in action.</p>
+    <a href="images/buttons/MultiStateButton.html" target="_blank"><img src="images/buttons/buttons.jpg" width="397" height="375" alt="" /></a>
+    <hr />
+    <h3>Demo</h3>
+    <button class="btn-pos">Save</button> <button class="btn-neg">Cancel</button> <button disabled="disabled">Next</button>
+    <hr />
+    <h3>CSS</h3>
+    <form>
+        <textarea id="code">
+/* default button */
+input[type=submit],
+input[type=reset],
+input[type=button],
+button,
+.btn {
+    border: none;
+    border-radius: 5px;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    color:#fff;
+    display: inline-block;
+    font-size: 13px;
+    height: 30px;
+    padding: 5px 10px;
+    vertical-align: middle;
+    -webkit-appearance:none;
+    -moz-appearance:none;
+}
+
+/* positive action button (green) */
+.btn-pos {
+    background-color: #6a4;
+}
+.btn-pos:hover {
+    background-color: #6b4;
+}
+
+/* negative action button (grey) */
+.btn-neg {
+    background-color: #666;
+}
+.btn-neg:hover {
+    background-color: #777;
+}
+
+/* disabled */
+input[type=submit][disabled="disabled"],
+input[type=reset][disabled="disabled"],
+input[type=button][disabled="disabled"],
+button[disabled="disabled"],
+.btn[disabled="disabled"],
+input[type=submit]:disabled,
+input[type=reset]:disabled,
+input[type=button]:disabled,
+button:disabled,
+.btn:disabled {
+    background-color: #ccc;
+}
+        </textarea>
+    </form>
+
+    <script>
+        CodeMirror.defaults.mode = 'css';
+        CodeMirror.defaults.lineNumbers = true;
+        CodeMirror.defaults.lineWrapping = true;
+        CodeMirror.defaults.theme = 'mdn-like';
+        CodeMirror.defaults.viewportMargin = Infinity;
+        var editor = CodeMirror.fromTextArea(document.getElementById("code"), CodeMirror.options);
+    </script>
+
+    <!-- this script is needed to build the template -->
+    <script src="build.js"></script>
+
 </body></html>

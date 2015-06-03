@@ -50,24 +50,24 @@
     }
 
     // load Javascript
-    /*function loadJavaScript(url, callback) {
-        var script = document.createElement("script");
-        script.type = "text/javascript";
-        if (script.readyState) { //IE
-            script.onreadystatechange = function () {
-                if (script.readyState === "loaded" || script.readyState === "complete") {
-                    script.onreadystatechange = null;
-                    if (callback) callback();
-                }
-            };
-        } else { //Others
-            script.onload = function () {
-                if (callback) callback();
-            };
-        }
-        script.src = url;
-        document.getElementsByTagName("head")[0].appendChild(script);
-    }*/
+    //function loadJS(url, callback) {
+    //    var script = document.createElement("script");
+    //    script.type = "text/javascript";
+    //    if (script.readyState) { //IE
+    //        script.onreadystatechange = function () {
+    //            if (script.readyState === "loaded" || script.readyState === "complete") {
+    //                script.onreadystatechange = null;
+    //                if (callback) callback();
+    //            }
+    //        };
+    //    } else { //Others
+    //        script.onload = function () {
+    //            if (callback) callback();
+    //        };
+    //    }
+    //    script.src = url;
+    //    document.getElementsByTagName("head")[0].appendChild(script);
+    //}
     
     // add to page title
     function suffixTitle() {
@@ -97,6 +97,7 @@
     loadCSS('styleguide.css');
     loadCSS('content.css');
     loadCSS('//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css');
+    //loadCSS('codemirror/lib/codemirror.css');
     
     // inject the nav HTML
     loadHTML('nav.html', document.getElementById('wrapper'), function(){
@@ -104,5 +105,9 @@
         loadHTML('header.html', document.body);
         addIcons();
     });
+
+    // load JS
+    //loadJS('codemirror/lib/codemirror.js');
+    //loadJS('codemirror/mode/css/css.js');
     
 })();
