@@ -1,9 +1,142 @@
 ﻿<!DOCTYPE html>
 
 <html lang="en">
-<head><link href="http://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
+<head>
     <meta charset="utf-8" />
     <title>Forms</title>
+
+    <!-- jQuery UI datepicker -->
+    <!--<link rel="stylesheet" href="http://code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css" />
+    <script src="http://code.jquery.com/jquery-1.11.3.min.js"></script>
+    <script src="http://code.jquery.com/ui/1.11.4/jquery-ui.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            $('.datepicker').datepicker().datepicker();
+        });
+    </script>-->
+
+    <!-- this script is needed to build the template -->
+    <script src="build.js"></script>
+
+    
+
+    <style>
+
+/* container for each form input to control spacing and scope */
+div.form-field {
+    margin-bottom:1.666667em; /* 20px */
+    padding: 0;
+}
+
+label {
+    display: inline-block;
+    font-size: 1.2em;
+    font-weight: bold;
+    line-height: 1.5em;
+}
+
+/* red asterisk gets appended by CSS */
+.required label:after {
+    color:#c00;
+    content:" *";
+    font-size: 1.5em;
+    position: relative;
+    top: .2em;
+}
+
+/* help text beneath input */
+.input-help {
+    color: #999;
+    display:inline-block;
+    font-size: 1em;
+    line-height: 1.5;
+}
+
+/* most HTML5 input types */
+input[type=date],
+input[type=number],
+input[type=email],
+input[type=search],
+input[type=tel],
+input[type=time],
+input[type=url],
+input[type=password],
+input[type=text],
+input[data-type=date],
+input[data-type=number],
+input[data-type=email],
+input[data-type=search],
+input[data-type=tel],
+input[data-type=time],
+input[data-type=url],
+input[data-type=password],
+input[data-type=text] {
+    border: solid 1px #ccc;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    border-radius: 5px;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    font-family: inherit;
+    font-size: inherit;
+    height: 28px;
+    padding: 5px 8px;
+    width: 200px;
+}
+
+/* file has no border */
+input[type=file] {
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    font-family: inherit;
+    font-size: inherit;
+    height: 28px;
+    padding: 5px 8px;
+    width: 200px;
+}
+
+/* textarea spans its parent */
+textarea {
+    border: solid 1px #ccc;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    border-radius: 5px;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    font-family: inherit;
+    font-size: inherit;
+    height:6em; /* 4 rows of text */
+    padding: 5px 8px;
+    width:100%;
+}
+
+select {
+    border: solid 1px #ccc;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    border-radius: 5px;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    font-family: inherit;
+    font-size: inherit;
+    height: 28px;
+    min-width: 200px;
+    padding: 5px 8px;
+}
+
+.validation-error {
+    color: #c00;
+    display:inline-block;
+    font-size: 1em;
+    line-height: 1.5;
+}
+
+    </style>
+
 </head>
 <body>
     <h2>Forms</h2>
@@ -15,7 +148,7 @@
       <li>All mandatory fields are marked with a red (#cc00) asterix <br>
       </li>
       <li>Supporting text can sit underneath the input fields</li>
-      <li>input fields are in  pixel grey #CCCCCC and should have 1pixel rounded corners.</li>
+      <li>input fields are in  pixel grey #CCCCCC and should have 1 pixel rounded corners.</li>
     </ul>
      
    
@@ -48,7 +181,199 @@ The above option shows the style of the dae picker. The no expirey date is an ad
   <br>
 Please read the <a href="buttons.html">buttons page </a>for full details and examples.</p>
 <p>&nbsp;</p>
- <!-- this script is needed to build the template -->
-<script src="build.js"></script>    
+
+    <hr />
+    <h3>Demo</h3>
+    <form class="demo">
+        <div class="form-field required">
+            <label for="first-name">First Name</label><br />
+            <input type="text" name="firstName" id="first-name" placeholder="Your preferred name" /><br />
+            <span class="input-help">This will be used throughout the application.</span>
+        </div>
+        <div class="form-field required">
+            <label for="last-name">Last Name</label><br />
+            <input type="text" name="lastName" id="last-name" placeholder="Your family name" /><br />
+            <span class="validation-error">Please enter your last name.</span>
+        </div>
+        <div class="form-field required">
+            <label for="company">Company</label><br />
+            <select name="company" id="company">
+                <option>Muddy Boots Software Limited</option>
+            </select><br />
+            <span class="input-help">The organisation where you are based.</span>
+        </div>
+        <!--<div class="form-field required">
+            <label for="start-date">Start Date</label><br />
+            <input type="text" name="startDate" id="start-date" placeholder="DD/MM/YYYY" class="datepicker" /><br />
+            <span class="input-help">Enter the date for the start of the event.</span>
+        </div>-->
+        <div class="form-field">
+            <label for="comments">Comments</label><br />
+            <textarea name="comments" id="comments" placeholder="Enter any additional notes here"></textarea><br />
+            <span class="input-help">These will appear on reports.</span>
+        </div>
+    </form>
+
+    <hr />
+    <h3>HTML</h3>
+    <form>
+        <textarea id="html">
+&lt;form&gt;
+    <div class="form-field required">
+        <label for="first-name">First Name</label><br />
+        <input type="text" name="firstName" id="first-name" placeholder="Your preferred name" /><br />
+        <span class="input-help">This will be used throughout the application.</span>
+    </div>
+    <div class="form-field required">
+        <label for="last-name">Last Name</label><br />
+        <input type="text" name="lastName" id="last-name" placeholder="Your family name" /><br />
+        <span class="validation-error">Please enter your last name.</span>
+    </div>
+    <div class="form-field required">
+        <label for="company">Company</label><br />
+        <select name="company" id="company">
+            <option>Muddy Boots Software Limited</option>
+        </select><br />
+        <span class="input-help">The organisation where you are based.</span>
+    </div>
+    <div class="form-field">
+        <label for="comments">Comments</label><br />
+        &lt;textarea name="comments" id="comments" placeholder="Enter any additional notes here"&gt;&lt;/textarea&gt;<br />
+        <span class="input-help">These will appear on reports.</span>
+    </div>
+&lt;/form&gt;
+        </textarea>
+    </form>
+
+    <hr />
+    <h3>CSS</h3>
+    <form>
+        <textarea id="css">
+/* container for each form input to control spacing and scope */
+div.form-field {
+    margin-bottom:1.666667em; /* 20px */
+    padding: 0;
+}
+
+label {
+    display: inline-block;
+    font-size: 1.2em;
+    font-weight: bold;
+    line-height: 1.5em;
+}
+
+/* red asterisk gets appended by CSS */
+.required label:after {
+    color:#c00;
+    content:" *";
+    font-size: 1.5em;
+    position: relative;
+    top: .2em;
+}
+
+/* help text beneath input */
+.input-help {
+    color: #999;
+    display:inline-block;
+    font-size: 1em;
+    line-height: 1.5;
+}
+
+/* most HTML5 input types */
+input[type=date],
+input[type=number],
+input[type=email],
+input[type=search],
+input[type=tel],
+input[type=time],
+input[type=url],
+input[type=password],
+input[type=text],
+input[data-type=date],
+input[data-type=number],
+input[data-type=email],
+input[data-type=search],
+input[data-type=tel],
+input[data-type=time],
+input[data-type=url],
+input[data-type=password],
+input[data-type=text] {
+    border: solid 1px #ccc;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    border-radius: 5px;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    font-family: inherit;
+    font-size: inherit;
+    height: 28px;
+    padding: 5px 8px;
+    width: 200px;
+}
+
+/* file has no border */
+input[type=file] {
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    font-family: inherit;
+    font-size: inherit;
+    height: 28px;
+    padding: 5px 8px;
+    width: 200px;
+}
+
+/* textarea spans its parent */
+textarea {
+    border: solid 1px #ccc;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    border-radius: 5px;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    font-family: inherit;
+    font-size: inherit;
+    height:6em; /* 4 rows of text */
+    padding: 5px 8px;
+    width:100%;
+}
+
+select {
+    border: solid 1px #ccc;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    border-radius: 5px;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    font-family: inherit;
+    font-size: inherit;
+    height: 28px;
+    min-width: 200px;
+    padding: 5px 8px;
+}
+
+.validation-error {
+    color: #c00;
+    display:inline-block;
+    font-size: 1em;
+    line-height: 1.5;
+}
+        </textarea>
+    </form>
+
+    <script>
+        window.showCode = function () {          
+            CodeMirror.fromTextArea(document.getElementById('html'), {
+                mode: 'xml'
+            });
+            CodeMirror.fromTextArea(document.getElementById('css'), {
+                mode: 'css'
+            });
+        };
+    </script>
+
 </body>
 </html>

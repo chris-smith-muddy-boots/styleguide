@@ -4,20 +4,20 @@
 <head>
     <meta charset="utf-8" />
     <title>Buttons</title>
-    <!--<link href="http://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">-->
-    <link rel="stylesheet" href="codemirror/lib/codemirror.css" />
-    <link rel="stylesheet" href="codemirror/theme/mdn-like.css" />
-    <script src="codemirror/lib/codemirror.js"></script>
-    <script src="codemirror/mode/css/css.js"></script>
+
+    <!-- this script is needed to build the template -->
+    <script src="build.js"></script>
+
     <style>
-        /* default button */
+/* default button styling */
 input[type=submit],
 input[type=reset],
 input[type=button],
 button,
-.btn {
-    border: none;
+.button {
     border-radius: 5px;
+    border-style:solid;
+    border-width: 1px;
     -webkit-box-sizing: border-box;
     -moz-box-sizing: border-box;
     box-sizing: border-box;
@@ -26,28 +26,34 @@ button,
     font-size: 13px;
     height: 30px;
     padding: 5px 10px;
+    -webkit-transition:all .5s;
+    -moz-transition:all .5s;
+    -o-transition:all .5s;
+    transition:all .5s;
     vertical-align: middle;
     -webkit-appearance:none;
     -moz-appearance:none;
 }
 
-/* positive action button (green) */
-.btn-pos {
+/* primary action button (green) */
+.primary {
     background-color: #6a4;
+    border-color:#6a4;
 }
-.btn-pos:hover {
+.primary:hover {
     background-color: #6b4;
 }
 
-/* negative action button (grey) */
-.btn-neg {
+/* secondary action button (dark grey) */
+.secondary {
     background-color: #666;
+    border-color:#666;
 }
-.btn-neg:hover {
+.secondary:hover {
     background-color: #777;
 }
 
-/* disabled */
+/* disabled (white) */
 input[type=submit][disabled="disabled"],
 input[type=reset][disabled="disabled"],
 input[type=button][disabled="disabled"],
@@ -57,11 +63,13 @@ input[type=submit]:disabled,
 input[type=reset]:disabled,
 input[type=button]:disabled,
 button:disabled,
-.btn:disabled {
-    background-color: #ccc;
+.button:disabled {
+    background-color: #fff;
+    border-color:#ccc;
+    color:#ccc;
 }
 
-        .multi-state {
+        /*.multi-state {
             height:30px;
             font-size:13px;
             -webkit-box-sizing:border-box;
@@ -112,7 +120,7 @@ button:disabled,
             -moz-transition:all .2s ease-in-out;
             -o-transition:all .2s ease-in-out;
             transition:all .2s ease-in-out;
-        }
+        }*/
     </style>
 </head>
 <body>
@@ -137,19 +145,20 @@ button:disabled,
     <a href="images/buttons/MultiStateButton.html" target="_blank"><img src="images/buttons/buttons.jpg" width="397" height="375" alt="" /></a>
     <hr />
     <h3>Demo</h3>
-    <button class="btn-pos">Save</button> <button class="btn-neg">Cancel</button> <button disabled="disabled">Next</button>
+    <button class="primary">Save</button> <button class="secondary">Cancel</button> <button disabled="disabled">Next</button>
     <hr />
     <h3>CSS</h3>
     <form>
-        <textarea id="code">
-/* default button */
+        <textarea id="css">
+/* default button styling */
 input[type=submit],
 input[type=reset],
 input[type=button],
 button,
-.btn {
-    border: none;
+.button {
     border-radius: 5px;
+    border-style:solid;
+    border-width: 1px;
     -webkit-box-sizing: border-box;
     -moz-box-sizing: border-box;
     box-sizing: border-box;
@@ -158,28 +167,34 @@ button,
     font-size: 13px;
     height: 30px;
     padding: 5px 10px;
+    -webkit-transition:all .5s;
+    -moz-transition:all .5s;
+    -o-transition:all .5s;
+    transition:all .5s;
     vertical-align: middle;
     -webkit-appearance:none;
     -moz-appearance:none;
 }
 
-/* positive action button (green) */
-.btn-pos {
+/* primary action button (green) */
+.primary {
     background-color: #6a4;
+    border-color:#6a4;
 }
-.btn-pos:hover {
+.primary:hover {
     background-color: #6b4;
 }
 
-/* negative action button (grey) */
-.btn-neg {
+/* secondary action button (dark grey) */
+.secondary {
     background-color: #666;
+    border-color:#666;
 }
-.btn-neg:hover {
+.secondary:hover {
     background-color: #777;
 }
 
-/* disabled */
+/* disabled (white) */
 input[type=submit][disabled="disabled"],
 input[type=reset][disabled="disabled"],
 input[type=button][disabled="disabled"],
@@ -189,22 +204,20 @@ input[type=submit]:disabled,
 input[type=reset]:disabled,
 input[type=button]:disabled,
 button:disabled,
-.btn:disabled {
-    background-color: #ccc;
+.button:disabled {
+    background-color: #fff;
+    border-color:#ccc;
+    color:#ccc;
 }
         </textarea>
     </form>
 
     <script>
-        CodeMirror.defaults.mode = 'css';
-        CodeMirror.defaults.lineNumbers = true;
-        CodeMirror.defaults.lineWrapping = true;
-        CodeMirror.defaults.theme = 'mdn-like';
-        CodeMirror.defaults.viewportMargin = Infinity;
-        var editor = CodeMirror.fromTextArea(document.getElementById("code"), CodeMirror.options);
+        window.showCode = function () {
+            CodeMirror.fromTextArea(document.getElementById("css"), {
+                mode: 'css'
+            });
+        };
     </script>
-
-    <!-- this script is needed to build the template -->
-    <script src="build.js"></script>
 
 </body></html>

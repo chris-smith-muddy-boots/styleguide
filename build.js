@@ -50,24 +50,24 @@
     }
 
     // load Javascript
-    //function loadJS(url, callback) {
-    //    var script = document.createElement("script");
-    //    script.type = "text/javascript";
-    //    if (script.readyState) { //IE
-    //        script.onreadystatechange = function () {
-    //            if (script.readyState === "loaded" || script.readyState === "complete") {
-    //                script.onreadystatechange = null;
-    //                if (callback) callback();
-    //            }
-    //        };
-    //    } else { //Others
-    //        script.onload = function () {
-    //            if (callback) callback();
-    //        };
-    //    }
-    //    script.src = url;
-    //    document.getElementsByTagName("head")[0].appendChild(script);
-    //}
+    function loadJS(url, callback) {
+        var script = document.createElement("script");
+        script.type = "text/javascript";
+        if (script.readyState) { //IE
+            script.onreadystatechange = function () {
+                if (script.readyState === "loaded" || script.readyState === "complete") {
+                    script.onreadystatechange = null;
+                    if (callback) callback();
+                }
+            };
+        } else { //Others
+            script.onload = function () {
+                if (callback) callback();
+            };
+        }
+        script.src = url;
+        document.getElementsByTagName("head")[0].appendChild(script);
+    }
     
     // add to page title
     function suffixTitle() {
@@ -81,33 +81,47 @@
         var nav = document.getElementsByTagName('nav')[0];
         var links = nav.getElementsByTagName('a');
         for (var i = 0; i < links.length; i++) {
-            links[i].innerHTML = '<i class="fa fa-book"></i> ' + links[i].innerHTML;
+            links[i].innerHTML = '<i class="fa fa-file-o"></i> ' + links[i].innerHTML;
         }
     }
     
-    /*---------- PAGE LOAD ----------*/
     
-    // wrap content in div
-    wrapContent();
+    /*---------- BEFORE PAGE LOAD ----------*/ 
 
     // suffix page title
     suffixTitle();
     
     // load the CSS
+    loadCSS('http://fonts.googleapis.com/css?family=Open+Sans');
     loadCSS('styleguide.css');
-    loadCSS('content.css');
     loadCSS('//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css');
-    //loadCSS('codemirror/lib/codemirror.css');
-    
-    // inject the nav HTML
-    loadHTML('nav.html', document.getElementById('wrapper'), function(){
-        // then inject the header HTML
-        loadHTML('header.html', document.body);
-        addIcons();
-    });
+    loadCSS('codemirror/lib/codemirror.css');
 
     // load JS
-    //loadJS('codemirror/lib/codemirror.js');
-    //loadJS('codemirror/mode/css/css.js');
+    loadJS('codemirror/lib/codemirror.js', function () {
+        loadJS('codemirror/mode/xml/xml.js');
+        loadJS('codemirror/mode/css/css.js');
+        // set default options
+        CodeMirror.defaults.lineWrapping = true;
+        CodeMirror.defaults.viewportMargin = Infinity;
+    });
+
+    /*---------- AFTER PAGE LOAD ----------*/
+
+    window.onload = function () {
+
+        // wrap content in div
+        wrapContent();
+
+        // inject the nav HTML
+        loadHTML('nav.html', document.getElementById('wrapper'), function () {
+            // then inject the header HTML
+            loadHTML('header.html', document.body);
+            addIcons();
+        });
+
+        if (window.showCode) window.showCode();
+
+    };
     
 })();

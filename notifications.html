@@ -1,9 +1,13 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 
 <html lang="en">
-<head><link href="http://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
+<head>
     <meta charset="utf-8" />
     <title>Colours</title>
+
+    <!-- this script is needed to build the template -->
+    <script src="build.js"></script>
+
 </head>
 <body>
     <h2>Notifications</h2>
@@ -11,26 +15,24 @@
     <p><strong>1 - The in page Notification</strong></p>
     <p>This  alert is a a short text message which appears in a horizontal line  underneath the navigation. It remains until a user clicks on the cross  to close it.</p>
     <p>Consider a background colour of green, blue or red depending on the severity of the problem. </p>
-<ul>
-      <li>Green (#5BA546) - Positive mesages - no issues just a helpful tooltip highlighting a page function such as a 'did you know?'<br>
-      </li>
-      <li>Blue (#0082C8) - Informative messages - an alert about the status of something.<br>
-      </li>
-      <li>Amber (#FF8533) - Warning messages - not critical but a user may have to make a change</li>
-      <li>Red (#CC0000) - Error messages - Use sparingly, this is a warning where a user needs to take action to resolve the problem.<br>
-      </li>
+    <ul>
+        <li>
+            Green (#5BA546) - Positive mesages - no issues just a helpful tooltip highlighting a page function such as a 'did you know?'<br>
+        </li>
+        <li>
+            Blue (#0082C8) - Informative messages - an alert about the status of something.<br>
+        </li>
+        <li>Amber (#FF8533) - Warning messages - not critical but a user may have to make a change</li>
+        <li>
+            Red (#CC0000) - Error messages - Use sparingly, this is a warning where a user needs to take action to resolve the problem.<br>
+        </li>
     </ul>
-    <p><img src="images/notifications/rederror.png" width="602" height="175" alt=""/></p>
+    <p><img src="images/notifications/rederror.png" alt="" /></p>
+    <p><img src="images/notifications/message-top.png" alt="" /></p>
+    <hr>
+    <h3>2 - Form Page Alert </h3>
+    <p>In this case it informs the user that they are unable to change the form values as they have no privileges. This is not a warning as nothing is wrong, there is no cross as its a message which can/may not need to be resolved but would always be viewed.</p>
+    <p><img src="images/notifications/blue-permission-message.jpg" alt="" /></p>
 
-    <p> <img src="images/notifications/message-top.png" width="604" height="217" alt=""/></p><hr>
-        <h3>2 - Form Page Alert </h3>
-
-In this case it informs the user that they are unable to change the form values as they have no privileges.
-
-This is not a warning as nothing is wrong, there is no cross as its a message which can/may not need to be resolved but would always be viewed.</p>
-    <h3><img src="images/notifications/blue-permission-message.jpg" width="605" height="431" alt=""/></h3>
-
-    <!-- this script is needed to build the template -->
-<script src="build.js"></script>
 </body>
 </html>
