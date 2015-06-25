@@ -9,119 +9,186 @@
     <script src="build.js"></script>
 
     <style>
-         
         td {
-            padding:1em;
-            text-align:center;
+            padding:.25em .5em;
         }
         /* colours */
         .current-green { background:#5ba546; color:#fff }
         .simple-green { background:#6a4; color:#fff }
+        .rgb-green { background:rgba(91,165,70,1); color:rgba(255,255,255,1) }
+
         .current-green-hover { background:#5bb646; color:#fff }
         .simple-green-hover { background:#6b4; color:#fff }
+        .rgb-green-hover { background:rgba(91,182,70,1); color:rgba(255,255,255,1) }
+
         .current-amber { background:#ff8533; color:#fff }
         .simple-amber { background:#f83; color:#fff }
+        .rgb-amber { background:rgba(255,133,51,1); color:rgba(255,255,255,1) }
+
         .current-red { background:#c00; color:#fff }
         .simple-red { background:#c00; color:#fff }
+        .rgb-red { background:rgba(204,0,0,1); color:rgba(255,255,255,1) }
+
         .current-blue { background:#0082c8; color:#fff }
         .simple-blue { background:#08c; color:#fff }
+        .rgb-blue { background:rgba(0,130,200,1); color:rgba(255,255,255,1) }
+
         .current-pale-grey { background:#f1f1f1; color:#333 }
         .simple-pale-grey { background:#eee; color:#333 }
+        .rgb-pale-grey { background:rgba(241,241,241,1); color:rgba(51,51,51,1) }
+
         .current-pale-green { background:#deedda; color:#333 }
         .simple-pale-green { background:#ded; color:#333 }
+        .rgb-pale-green { background:rgba(222,237,218,1); color:rgba(51,51,51,1) }
+
         .current-grey { background:#ccc; color:#333 }
         .simple-grey { background:#ccc; color:#333 }
+        .rgb-grey { background:rgba(204,204,204,1); color:rgba(51,51,51,1) }
+
         .current-dark-grey { background:#999; color:#fff }
         .simple-dark-grey { background:#999; color:#fff }
+        .rgb-dark-grey { background:rgba(153,153,153,1); color:rgba(255,255,255,1) }
+
         .current-black { background:#333; color:#fff }
         .simple-black { background:#333; color:#fff }
-		.simple-white { background:#fff; color:#000}
-		.current-white { background:#fff; color:#000 }
+        .rgb-black { background:rgba(51,51,51,1); color:rgba(255,255,255,1) }
+
+        .current-very-dark-grey { background:#666; color:#fff }
+        .simple-very-dark-grey { background:#666; color:#fff }
+        .rgb-very-dark-grey { background:rgba(102,102,102,1); color:rgba(255,255,255,1) }
+
+        .current-very-dark-grey-hover { background:#777; color:#fff }
+        .simple-very-dark-grey-hover { background:#777; color:#fff }
+        .rgb-very-dark-grey-hover { background:rgba(119,119,119,1); color:rgba(255,255,255,1) }
+
+		.simple-white { background:#fff; color:#333}
+		.current-white { background:#fff; color:#333 }
+        .rgb-white { background:rgba(255,255,255,1); color:rgba(51,51,51,1) }
     </style>
  </head>
 <body>
     <h2>Colours</h2>
-    <p>There following page outlines the colours used in the Greenlight Products. These hexidecimal value and their usage are outlined below.</p>
+    <p>This page outlines the colours used in the Greenlight Products. These hexidecimal and RGB values and their usage are outlined below.</p>
     <hr>
     <h3>Chart Colour Palette</h3>
-    <p>Below is a list of suitable chart colours.</p>
+    <p>Below is a list of suitable colours.</p>
     <table>
+        <colgroup>
+            <col style="width:15%" />
+            <col style="width:40%" />
+            <col style="width:15%" />
+            <col style="width:15%" />
+            <col style="width:15%" />
+        </colgroup>
         <thead>
             <tr>
-              <th width="115">Colour Name</th>
-              <th width="253">Usage</th>
-                <th width="86">Current</th>
-                <th width="76">Shorter</th>
+              <th>Name</th>
+              <th>Usage</th>
+                <th>HEX (Long)</th>
+                <th>HEX (Short)</th>
+                <th>RGB</th>
             </tr>
         </thead>
         <tbody>
             <tr>
               <td class="current-green">Green</td>
-              <td class="current-green"><p>Satus: Active<br>
-                Valid/Completed/ 
-              Links and primary buttons, Tableheader, Main navigationbackground, pop up window border</p></td>
+                <td class="current-green">
+                    Status: Active/Valid/Completed<br />
+                    links and primary buttons, table headers, main navigation background, pop-up window border
+                </td>
                 <td class="current-green">#5ba546</td>
                 <td class="simple-green">#6a4</td>
+                <td class="rgb-green">91,165,70</td>
             </tr>
             <tr>
-              <td class="current-green-hover">Highlight Colour</td>
-              <td class="current-green-hover">Highlighted link colour</td>
+              <td class="current-green-hover">Green Highlight</td>
+              <td class="current-green-hover">Highlighted link and button colour (hover state)</td>
                 <td class="current-green-hover">#5bb646</td>
                 <td class="simple-green-hover">#6b4</td>
+                <td class="rgb-green-hover">91,182,70</td>
             </tr>
             <tr>
               <td class="current-amber">Orange</td>
               <td class="current-amber">Status: Pending/Expiring</td>
                 <td class="current-amber">#ff8533</td>
                 <td class="simple-amber">#f83</td>
+                <td class="rgb-amber">255,133,51</td>
             </tr>
             <tr>
               <td class="current-red">Red</td>
-              <td class="current-red">Status: Expired/Rejected</td>
-                <td class="current-red">#c00</td>
+                <td class="current-red">
+                    Status: Expired/Rejected<br />
+                    Validation or warning messages
+                </td>
+                <td class="current-red">#cc0000</td>
                 <td class="simple-red">#c00</td>
+                <td class="rgb-red">204,0,0</td>
             </tr>
             <tr>
               <td class="current-blue">Blue</td>
               <td class="current-blue">New/Uploaded/Alert Messages</td>
                 <td class="current-blue">#0082c8</td>
                 <td class="simple-blue">#08c</td>
+                <td class="rgb-blue">0,130,200</td>
+            </tr>
+            <tr>
+                <td class="current-white">White</td>
+                <td class="current-white">Header background, main content background, main navigation links</td>
+                <td class="current-white">#ffffff</td>
+                <td class="simple-white">#fff</td>
+                <td class="rgb-white">255,255,255</td>
             </tr>
             <tr>
               <td class="current-pale-grey">Light Grey</td>
               <td class="current-pale-grey">Page sidebar background</td>
                 <td class="current-pale-grey">#f1f1f1</td>
                 <td class="simple-pale-grey">#eee</td>
+                <td class="rgb-pale-grey">241,241,241</td>
             </tr>
             <tr>
               <td class="current-pale-green">Pale Green</td>
               <td class="current-pale-green">Alternative table row background</td>
                 <td class="current-pale-green">#deedda</td>
                 <td class="simple-pale-green">#ded</td>
+                <td class="rgb-pale-green">222,237,218</td>
             </tr>
             <tr>
               <td class="current-grey">Mid Grey</td>
-              <td class="current-grey">Borders around white areas and form inputs</td>
-                <td class="current-grey">#ccc</td>
+                <td class="current-grey">
+                    Borders around white areas and form inputs<br />
+                    Disabled buttons
+                </td>
+                <td class="current-grey">#cccccc</td>
                 <td class="simple-grey">#ccc</td>
+                <td class="rgb-grey">204,204,204</td>
             </tr>
             <tr>
               <td class="current-dark-grey">Dark Grey</td>
               <td class="current-dark-grey"><p>Main navigation links, page text,Archived/Issued/Assigned buttons, Text in table cells</p></td>
-                <td class="current-dark-grey">#999</td>
+                <td class="current-dark-grey">#999999</td>
                 <td class="simple-dark-grey">#999</td>
+                <td class="rgb-dark-grey">153,153,153</td>
             </tr>
             <tr>
-              <td class="current-black">Very Dark Grey</td>
-              <td class="current-black">Text and Headings</td>
-                <td class="current-black">#333</td>
-                <td class="simple-black">#333</td>
+                <td class="current-very-dark-grey">Very Dark Grey</td>
+                <td class="current-very-dark-grey">Secondary action buttons</td>
+                <td class="current-very-dark-grey">#666666</td>
+                <td class="simple-very-dark-grey">#666</td>
+                <td class="rgb-very-dark-grey">102,102,102</td>
             </tr>
-               <tr>
-              <td class="current-white">White</td>
-              <td class="current-white">Header background, main content background, main navigation links</td>
-              <td class="current-white">#ffffff</td>
-              <td class="simple-white">#fff</td>
+            <tr>
+                <td class="current-very-dark-grey-hover">Very Dark Grey Highlight</td>
+                <td class="current-very-dark-grey-hover">Highlighted secondary action buttons (hover state)</td>
+                <td class="current-very-dark-grey-hover">#7777777</td>
+                <td class="simple-very-dark-grey-hover">#777</td>
+                <td class="rgb-very-dark-grey-hover">119,119,119</td>
+            </tr>
+            <tr>
+              <td class="current-black">Black</td>
+              <td class="current-black">Text and Headings</td>
+                <td class="current-black">#333333</td>
+                <td class="simple-black">#333</td>
+                <td class="rgb-black">51,51,51</td>
             </tr>
         </tbody>
     </table>

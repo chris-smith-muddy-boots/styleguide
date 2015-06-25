@@ -17,126 +17,6 @@
 
     <!-- this script is needed to build the template -->
     <script src="build.js"></script>
-
-    
-
-    <style>
-
-/* container for each form input to control spacing and scope */
-div.form-field {
-    margin-bottom:1.666667em; /* 20px */
-    padding: 0;
-}
-
-label {
-    display: inline-block;
-    font-size: 1.2em;
-    font-weight: bold;
-    line-height: 1.5em;
-}
-
-/* red asterisk gets appended by CSS */
-.required label:after {
-    color:#c00;
-    content:" *";
-    font-size: 1.5em;
-    position: relative;
-    top: .2em;
-}
-
-/* help text beneath input */
-.input-help {
-    color: #999;
-    display:inline-block;
-    font-size: 1em;
-    line-height: 1.5;
-}
-
-/* most HTML5 input types */
-input[type=date],
-input[type=number],
-input[type=email],
-input[type=search],
-input[type=tel],
-input[type=time],
-input[type=url],
-input[type=password],
-input[type=text],
-input[data-type=date],
-input[data-type=number],
-input[data-type=email],
-input[data-type=search],
-input[data-type=tel],
-input[data-type=time],
-input[data-type=url],
-input[data-type=password],
-input[data-type=text] {
-    border: solid 1px #ccc;
-    -webkit-border-radius: 5px;
-    -moz-border-radius: 5px;
-    border-radius: 5px;
-    -moz-box-sizing: border-box;
-    -webkit-box-sizing: border-box;
-    box-sizing: border-box;
-    font-family: inherit;
-    font-size: inherit;
-    height: 28px;
-    padding: 5px 8px;
-    width: 200px;
-}
-
-/* file has no border */
-input[type=file] {
-    -moz-box-sizing: border-box;
-    -webkit-box-sizing: border-box;
-    box-sizing: border-box;
-    font-family: inherit;
-    font-size: inherit;
-    height: 28px;
-    padding: 5px 8px;
-    width: 200px;
-}
-
-/* textarea spans its parent */
-textarea {
-    border: solid 1px #ccc;
-    -webkit-border-radius: 5px;
-    -moz-border-radius: 5px;
-    border-radius: 5px;
-    -moz-box-sizing: border-box;
-    -webkit-box-sizing: border-box;
-    box-sizing: border-box;
-    font-family: inherit;
-    font-size: inherit;
-    height:6em; /* 4 rows of text */
-    padding: 5px 8px;
-    width:100%;
-}
-
-select {
-    border: solid 1px #ccc;
-    -webkit-border-radius: 5px;
-    -moz-border-radius: 5px;
-    border-radius: 5px;
-    -moz-box-sizing: border-box;
-    -webkit-box-sizing: border-box;
-    box-sizing: border-box;
-    font-family: inherit;
-    font-size: inherit;
-    height: 28px;
-    min-width: 200px;
-    padding: 5px 8px;
-}
-
-.validation-error {
-    color: #c00;
-    display:inline-block;
-    font-size: 1em;
-    line-height: 1.5;
-}
-
-    </style>
-
 </head>
 <body>
     <h2>Forms</h2>
@@ -161,7 +41,7 @@ select {
 
 <hr>
 
-<h3>Data Pickers Expirey Field</h3>
+<h3>Data Pickers Expiry Field</h3>
 <p>In SA a file expirey date field is mandatory. The user has an option to either pick a date or click the No Expiry Date button in the datepicker.
  
 <p><img src="images/forms/expireydate1.jpg" width="410" height="132" alt=""/></p>
@@ -172,208 +52,21 @@ The above option shows the style of the dae picker. The no expirey date is an ad
 <p>Long lists can be broken down with background striping. This helps to avoid confuse selecting the wrong one.</p>
 <p><img src="images/forms/row-colours.png" width="583" height="328" alt=""/></p><hr>
 <h3>Form Validation</h3>
-<p>When a form is submited it is validated and any invalid inputs are flagged with red text underneath. Please enter"Field Name&quot;.</p>
-<p><img src="images/forms/form-validation.png" width="1025" height="593" alt=""/></p>
+<p>When a form is submited it is validated and any invalid inputs are flagged with red text underneath. Please enter "Field Name".</p>
+<img src="images/forms/form-validation.png" alt=""/>
 <hr>
 <h3>Form Buttons</h3>
 <p>Form buttons are Green for primary actions and grey for secondary actions.<br>
   Primary Actions appear before secondary actions.
   <br>
-Please read the <a href="buttons.html">buttons page </a>for full details and examples.</p>
+Please read the <a href="buttons.html">buttons page</a> for full details and examples.</p>
 <p>&nbsp;</p>
 
     <hr />
-    <h3>Demo</h3>
-    <form class="demo">
-        <div class="form-field required">
-            <label for="first-name">First Name</label><br />
-            <input type="text" name="firstName" id="first-name" placeholder="Your preferred name" /><br />
-            <span class="input-help">This will be used throughout the application.</span>
-        </div>
-        <div class="form-field required">
-            <label for="last-name">Last Name</label><br />
-            <input type="text" name="lastName" id="last-name" placeholder="Your family name" /><br />
-            <span class="validation-error">Please enter your last name.</span>
-        </div>
-        <div class="form-field required">
-            <label for="company">Company</label><br />
-            <select name="company" id="company">
-                <option>Muddy Boots Software Limited</option>
-            </select><br />
-            <span class="input-help">The organisation where you are based.</span>
-        </div>
-        <!--<div class="form-field required">
-            <label for="start-date">Start Date</label><br />
-            <input type="text" name="startDate" id="start-date" placeholder="DD/MM/YYYY" class="datepicker" /><br />
-            <span class="input-help">Enter the date for the start of the event.</span>
-        </div>-->
-        <div class="form-field">
-            <label for="comments">Comments</label><br />
-            <textarea name="comments" id="comments" placeholder="Enter any additional notes here"></textarea><br />
-            <span class="input-help">These will appear on reports.</span>
-        </div>
-    </form>
-
-    <hr />
-    <h3>HTML</h3>
-    <form>
-        <textarea id="html">
-&lt;form&gt;
-    <div class="form-field required">
-        <label for="first-name">First Name</label><br />
-        <input type="text" name="firstName" id="first-name" placeholder="Your preferred name" /><br />
-        <span class="input-help">This will be used throughout the application.</span>
-    </div>
-    <div class="form-field required">
-        <label for="last-name">Last Name</label><br />
-        <input type="text" name="lastName" id="last-name" placeholder="Your family name" /><br />
-        <span class="validation-error">Please enter your last name.</span>
-    </div>
-    <div class="form-field required">
-        <label for="company">Company</label><br />
-        <select name="company" id="company">
-            <option>Muddy Boots Software Limited</option>
-        </select><br />
-        <span class="input-help">The organisation where you are based.</span>
-    </div>
-    <div class="form-field">
-        <label for="comments">Comments</label><br />
-        &lt;textarea name="comments" id="comments" placeholder="Enter any additional notes here"&gt;&lt;/textarea&gt;<br />
-        <span class="input-help">These will appear on reports.</span>
-    </div>
-&lt;/form&gt;
-        </textarea>
-    </form>
-
-    <hr />
-    <h3>CSS</h3>
-    <form>
-        <textarea id="css">
-/* container for each form input to control spacing and scope */
-div.form-field {
-    margin-bottom:1.666667em; /* 20px */
-    padding: 0;
-}
-
-label {
-    display: inline-block;
-    font-size: 1.2em;
-    font-weight: bold;
-    line-height: 1.5em;
-}
-
-/* red asterisk gets appended by CSS */
-.required label:after {
-    color:#c00;
-    content:" *";
-    font-size: 1.5em;
-    position: relative;
-    top: .2em;
-}
-
-/* help text beneath input */
-.input-help {
-    color: #999;
-    display:inline-block;
-    font-size: 1em;
-    line-height: 1.5;
-}
-
-/* most HTML5 input types */
-input[type=date],
-input[type=number],
-input[type=email],
-input[type=search],
-input[type=tel],
-input[type=time],
-input[type=url],
-input[type=password],
-input[type=text],
-input[data-type=date],
-input[data-type=number],
-input[data-type=email],
-input[data-type=search],
-input[data-type=tel],
-input[data-type=time],
-input[data-type=url],
-input[data-type=password],
-input[data-type=text] {
-    border: solid 1px #ccc;
-    -webkit-border-radius: 5px;
-    -moz-border-radius: 5px;
-    border-radius: 5px;
-    -moz-box-sizing: border-box;
-    -webkit-box-sizing: border-box;
-    box-sizing: border-box;
-    font-family: inherit;
-    font-size: inherit;
-    height: 28px;
-    padding: 5px 8px;
-    width: 200px;
-}
-
-/* file has no border */
-input[type=file] {
-    -moz-box-sizing: border-box;
-    -webkit-box-sizing: border-box;
-    box-sizing: border-box;
-    font-family: inherit;
-    font-size: inherit;
-    height: 28px;
-    padding: 5px 8px;
-    width: 200px;
-}
-
-/* textarea spans its parent */
-textarea {
-    border: solid 1px #ccc;
-    -webkit-border-radius: 5px;
-    -moz-border-radius: 5px;
-    border-radius: 5px;
-    -moz-box-sizing: border-box;
-    -webkit-box-sizing: border-box;
-    box-sizing: border-box;
-    font-family: inherit;
-    font-size: inherit;
-    height:6em; /* 4 rows of text */
-    padding: 5px 8px;
-    width:100%;
-}
-
-select {
-    border: solid 1px #ccc;
-    -webkit-border-radius: 5px;
-    -moz-border-radius: 5px;
-    border-radius: 5px;
-    -moz-box-sizing: border-box;
-    -webkit-box-sizing: border-box;
-    box-sizing: border-box;
-    font-family: inherit;
-    font-size: inherit;
-    height: 28px;
-    min-width: 200px;
-    padding: 5px 8px;
-}
-
-.validation-error {
-    color: #c00;
-    display:inline-block;
-    font-size: 1em;
-    line-height: 1.5;
-}
-        </textarea>
-    </form>
-
-    <script>
-        window.showCode = function () {          
-            CodeMirror.fromTextArea(document.getElementById('html'), {
-                mode: 'xml'
-            });
-            CodeMirror.fromTextArea(document.getElementById('css'), {
-                mode: 'css'
-            });
-        };
-    </script>
+    <h3><i class="fa fa-codepen"></i> Live Code Example</h3>
+    <!-- codepen -->
+    <p data-height="600" data-theme-id="16223" data-slug-hash="zGPprr" data-default-tab="result" data-user="greenlightstyleguide" class='codepen'>See the Pen <a href='http://codepen.io/greenlightstyleguide/pen/zGPprr/'>Form Elements</a> by Greenlight Style Guide (<a href='http://codepen.io/greenlightstyleguide'>@greenlightstyleguide</a>) on <a href='http://codepen.io'>CodePen</a>.</p>
+    <script async src="//assets.codepen.io/assets/embed/ei.js"></script>
 
 </body>
 </html>
