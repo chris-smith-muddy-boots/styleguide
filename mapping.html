@@ -8,18 +8,60 @@
     <!-- this script is needed to build the template -->
     <script src="build.js"></script>
 
-    
- </head>
+</head>
 <body>
     <h2>Mapping</h2>
-<p>This page outlines for using google maps within the Greenlight Products. 
- </p>
-    <hr>
-    
-       
-     
+    <p>This page outlines styles for using Google Maps API within the Greenlight Products.</p>
+
+    <hr />
+
+    <h3>The Map</h3>
+    <p>Where possible use the HYBRID map type, which is satellite imagery with text labels, boundaries, major roads and places indicated.</p>
+    <p>The pan, rotate and zoom controls are shown, others are hidden by default. The zoom control should be the small/mobile version.</p>
+    <img src="images/mapping/map.png" alt="the map" />
+
+    <hr />
+
+    <h3>Map Markers</h3>
+    <p>Map markers, also known as pins, use the Font Awesome map marker icons. There are 2 versions, one with a hole and one solid. The version with the hole is the default version, the solid version is used when a character is placed on the marker.</p>
+    <p>By default map markers are white (#fff) with black (#000) text but colours can change to other colours from the palette as needed. Text is 14px and bold.</p>
+    <p>The label which shows a single character on a marker should always be a letter A-Z (and then a-z if more are needed) so as not to be confused with marker clusters.</p>
+    <img src="images/mapping/markers.png" alt="map markers" />
+
+    <hr />
+
+    <h3>Marker Clustering</h3>
+    <p>Where several map markers are close together they should be replaced with a marker cluster - a circle which indicates the number of markers it replaces.</p>
+    <p>By default this is white (#fff) with blue text (#08c). As with the markers, text is 14px and bold.</p>
+    <img src="images/mapping/cluster.png" alt="marker cluster" />
+
+    <hr />
+
+    <h3>Lines and Arrows</h3>
+    <p>Lines, called polylines in Google Maps, should always have a strokeWidth of 3 (3px thickness).</p>
+    <p>Colour will depend on usage, e.g. the status of a chain, and can use the RAG colours, but is set as white (#fff) by default.</p>
+    <p>If an arrow is required, the FORWARD_OPEN_ARROW Google Maps symbol should be used with the same colour as the line.</p>
+    <p>The "geodesic" property, which uses the Earth's curvature in calculations rather than treating it as a flat 2D map, should be set to true. This usually results in slightly curved lines.</p>
+    <img src="images/mapping/polyline.png" alt="polyline" />
+
+    <hr />
+
+    <h3>Shapes</h3>
+    <p>Polygons, shapes made up of polylines, can use different colours but the default stroke colour is white (#fff). They should always have a strokeWidth of 3.</p>
+    <p>By default there is no fill so that the detail inside can be seen clearly.</p>
+    <p>The "geodesic" property should be set to true.</p>
+    <img src="images/mapping/polygon.png" alt="polygon" />
+
+    <hr />
+
+
+    <h3>Default Settings Script</h3>
+    <p>There is a script which sets all the default properties that should be used and even includes some SVG symbol paths and Data URIs for icons.</p>
+    <p data-height="600" data-theme-id="16223" data-slug-hash="jbPZab" data-default-tab="result" data-user="greenlightstyleguide" class='codepen'>See the Pen <a href='http://codepen.io/greenlightstyleguide/pen/jbPZab/'>Google Maps API Default Settings</a> by Greenlight Style Guide (<a href='http://codepen.io/greenlightstyleguide'>@greenlightstyleguide</a>) on <a href='http://codepen.io'>CodePen</a>.</p>
+    <script async src="//assets.codepen.io/assets/embed/ei.js"></script>
+
  
-<h3>GM Mapping Colours</h3>
+<!--<h3>GM Mapping Colours</h3>
     <p>Do not customise the core colours of the Googlemap. <img src="images/mapping/mapping-supplychain.jpg" width="734" height="460" alt=""/>   
     Where possible use the satelite view. <br>
     Use white arrows on 2 pixel wide lines when required to show movement from site to site (such as products in the supply chain).<br>
@@ -28,10 +70,7 @@
     <hr>
 <h3>Marker for Google maps</h3>
 <p>Greenlight Products use a white marker (also known as a pin) as default. Again this is font awesome, although these can all be exported to svg. Which is perfect when removing the 'hole' to add a letter to label the pin - In this example the letter A.</p>
-<p><img src="images/icons/marker.png" width="35" height="55" alt=""/><img src="images/icons/marker-label.png" width="35" height="55" alt=""/><br>
- 
-
-</p>
+<p><img src="images/icons/marker.png" width="35" height="55" alt=""/><img src="images/icons/marker-label.png" width="35" height="55" alt=""/></p>-->
 
 </body>
 </html>
